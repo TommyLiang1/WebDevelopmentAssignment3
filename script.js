@@ -11,6 +11,7 @@ let column = document.createElement("td");
 let row = document.createElement("tr");
 let totalGrid = document.getElementById("grid"); // getting data from our table id grid in index.html
 
+    // If there are no rows it will add one
     if(numCols === 0){
         row.appendChild(document.createElement("td"));
         totalGrid.appendChild(row);
@@ -19,6 +20,7 @@ let totalGrid = document.getElementById("grid"); // getting data from our table 
                 numCols++;
             }
     }
+    // If there are already existing rows and columns then add to the existing
     else{
         for(let i = 0; i < numCols; i++){
             row.appendChild(document.createElement("td"));
