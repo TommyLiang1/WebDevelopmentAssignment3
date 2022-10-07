@@ -31,7 +31,12 @@ let totalGrid = document.getElementById("grid"); // getting data from our table 
 
 // Add a column
 function addC() {
-    alert("Clicked Add Col"); // Replace this line with your code.
+   
+// td is used for columns while tr is used for rows
+let column = document.createElement("td");
+let row = document.createElement("tr");
+let totalGrid = document.getElementById("grid"); // getting data from our table id grid in index.html
+    
 }
 
 // Remove a row
