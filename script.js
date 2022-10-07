@@ -11,6 +11,20 @@ let column = document.createElement("td");
 let row = document.createElement("tr");
 let totalGrid = document.getElementById("grid"); // getting data from our table id grid in index.html
 
+    if(numCols === 0){
+        row.appendChild(document.createElement("td"));
+        totalGrid.appendChild(row);
+
+            if(numRows === 0){
+                numCols++;
+            }
+    }
+    else{
+        for(let i = 0; i < numCols; i++){
+            row.appendChild(document.createElement("td"));
+        }
+        totalGrid.appendChild(row);
+    }
 }
 
 // Add a column
