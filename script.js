@@ -5,7 +5,12 @@ let colorSelected;
 
 // Add a row
 function addR() {
-    alert("Clicked Add Row"); // Replace this line with your code.
+    
+// td is used for columns while tr is used for rows
+let column = document.createElement("td");
+let row = document.createElement("tr");
+let totalGrid = document.getElementById("grid"); // getting data from our table id grid in index.html
+
 }
 
 // Add a column
