@@ -23,23 +23,34 @@ let totalGrid = document.getElementById("grid"); // getting data from our table 
     // If there are already existing rows and columns then add to the existing
     else{
         for(let i = 0; i < numCols; i++){
+
             row.appendChild(document.createElement("td"));
+            totalGrid.appendChild(row);
+    
+                if(numRows === 0){
+                    numCols++;
+                }
+            }
+        // If there are already existing rows and columns then add to the existing
+        else{
+            for(let i = 0; i < numCols; i++){
+                row.appendChild(document.createElement("td"));
+            }
+            totalGrid.appendChild(row);
         }
-        totalGrid.appendChild(row);
-    }
-
-// add to the count of rows
-numRows++;
-// allows clicked boxes to change to specified color (tried at top but will always be one row/col off unless declared later on)
-let colorClick = document.querySelectorAll("tr td");
-
-for(let i = 0; i < colorClick.length; i++){
-    colorClick[i].onclick = function(){
-    this.style.backgroundColor = colorSelected;
+    
+    // add to the count of rows
+    numRows++;
+    // allows clicked boxes to change to specified color (tried at top but will always be one row/col off unless declared later on)
+    let colorClick = document.querySelectorAll("tr td");
+    
+    for(let i = 0; i < colorClick.length; i++){
+        colorClick[i].onclick = function(){
+        this.style.backgroundColor = colorSelected;
+        }
     }
 }
 
-}
 
 // Add a column
 function addC() {
