@@ -74,17 +74,18 @@ function addC() {
 }
 
 // Remove a row
-// function removeR() {
-//     // remove nothing if table is empty
-//     if(numRows === 0 || numCols === 0)
-//         return;
-//     // remove last row
-//     document.getElementById('grid').deleteRow(--numRows);
-//     // if there are 0 rows, set col to 0 as well
-//     if(numRows === 0)
-//         numCols = 0;
-// }
+function removeR() {
+    // remove nothing if table is empty
+    if(numRows === 0 || numCols === 0)
+        return;
+    // remove last row
+    document.getElementById('grid').deleteRow(--numRows);
+    // if there are 0 rows, set col to 0 as well
+    if(numRows === 0)
+        numCols = 0;
+}
 
+// Remove a column
 function removeC() {
     // declaration for rows
     let allRows = document.querySelectorAll("tr");
@@ -111,24 +112,6 @@ function removeC() {
         numCols--;
         }
     }
-}
-
-// Remove a column
-function removeC() {
-    // remove nothing if table is empty
-    if(numRows === 0 || numCols === 0)
-        return;
-    // get list of rows
-    let allRows = document.querySelectorAll("tr");
-    // for each row, remove the last cell
-    for(let i = numRows; i > 0; i--) {
-        grid.childNodes[i].removeChild(grid.childNodes[i].lastElementChild)
-        //allRows[i].deleteCell(numCols-1);
-    }
-    // decrease numCols by 1 and if there are 0 cols, set row to 0
-    if(--numCols === 0) {
-        numRows = 0;
-    }    
 }
 
 // Set global variable for selected color
