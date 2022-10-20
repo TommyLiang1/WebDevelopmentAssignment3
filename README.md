@@ -1,6 +1,6 @@
 # Assignment 3 - Grid Maker 
 
-[Website Link](GITHUB PAGES LINK)
+[Website Link](https://tommyliang1.github.io/WebDevelopmentAssignment3/)
 
 ## Table of Contents
 

@@ -74,15 +74,43 @@ function addC() {
 }
 
 // Remove a row
-function removeR() {
-    // remove nothing if table is empty
-    if(numRows === 0 || numCols === 0)
-        return;
-    // remove last row
-    document.getElementById('grid').deleteRow(--numRows);
-    // if there are 0 rows, set col to 0 as well
-    if(numRows === 0)
+// function removeR() {
+//     // remove nothing if table is empty
+//     if(numRows === 0 || numCols === 0)
+//         return;
+//     // remove last row
+//     document.getElementById('grid').deleteRow(--numRows);
+//     // if there are 0 rows, set col to 0 as well
+//     if(numRows === 0)
+//         numCols = 0;
+// }
+
+function removeC() {
+    // declaration for rows
+    let allRows = document.querySelectorAll("tr");
+
+    // remove nothing if table is empty (will unevenly add boxes if not implemented)
+    if(numCols > 0){ 
+
+        if(numCols === 1){
+            for(let i = numRows-1; i >= 0; i--){
+                grid.removeChild(allRows[i]);
+            }
+
+        // sets Columns & Rows to 0 if removing the only/last column so the grid would be empty (same logic for the above if/for loop)
         numCols = 0;
+        numRows = 0;
+        }
+
+        else{
+            for(let i = numRows-1; i >= 0; i--){
+                // originally attempted with .childnodes but would leave uneven rows/columns
+                allRows[i].removeChild(allRows[i].lastElementChild);
+            }
+        // if there are multiple columns then it will simply subtract 1 from the total number of columns
+        numCols--;
+        }
+    }
 }
 
 // Remove a column
