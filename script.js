@@ -78,12 +78,32 @@ if(numRows === 0){
 
 // Remove a row
 function removeR() {
-    alert("Clicked Remove Row"); // Replace this line with your code.
+    // remove nothing if table is empty
+    if(numRows === 0 || numCols === 0)
+        return;
+    // remove last row
+    document.getElementById('grid').deleteRow(--numRows);
+    // if there are 0 rows, set col to 0 as well
+    if(numRows === 0)
+        numCols = 0;
 }
 
 // Remove a column
 function removeC() {
-    alert("Clicked Remove Col"); // Replace this line with your code.
+    // remove nothing if table is empty
+    if(numRows === 0 || numCols === 0)
+        return;
+    // get list of rows
+    let allRows = document.querySelectorAll("tr");
+    // for each row, remove the last cell
+    for(let i = numRows; i > 0; i--) {
+        grid.childNodes[i].removeChild(grid.childNodes[i].lastElementChild)
+        //allRows[i].deleteCell(numCols-1);
+    }
+    // decrease numCols by 1 and if there are 0 cols, set row to 0
+    if(--numCols === 0) {
+        numRows = 0;
+    }    
 }
 
 // Set global variable for selected color
@@ -94,7 +114,11 @@ function selectColor(){
 
 // Fill all uncolored cells
 function fillU(){
-    alert("Clicked Fill All Uncolored"); // Replace this line with your code.
+    const allBoxes = document.querySelectorAll("tr td"); 
+    for (let i =0 ; i < allBoxes.length; i++){
+        console.log(allBoxes[i].style.backgroundColor )
+        if(allBoxes[i].style.backgroundColor == "") allBoxes[i].style.backgroundColor = colorSelected;
+    }
 }
 
 // Fill all cells
@@ -109,6 +133,6 @@ function fillAll(){
 function clearAll(){
     const allBoxes = document.querySelectorAll("tr td"); 
     for (let i =0 ; i < allBoxes.length; i++){
-        allBoxes[i].style.backgroundColor = 'white';
+        allBoxes[i].style.backgroundColor = '';
     }
 }
